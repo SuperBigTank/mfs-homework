@@ -1,0 +1,38 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    body{
+      margin: 0
+    }
+    *{
+      box-sizing: border-box
+    }
+    .left {
+      float: left;
+      width: 100px;
+    }
+    .left a{
+      display: block
+    }
+    .right {
+      float: left;
+      width: calc(100% - 102px);
+      height: 100vh
+    }
+  </style>
+</head>
+
+<body>
+  <div class="left">	
+    <a href="https://www.csdn.net/" target="iframe1">CSDN</a>
+    <a href="http://www.baidu.com" target="iframe1">百度</a>
+    <a href="https://www.bilibili.com/" target="iframe1">哔哩哔哩</a>
+    <a href="https://www.runoob.com/" target="iframe1">菜鸟教程</a>
+  </div>
+  <iframe name="iframe1" src="http://www.baidu.com" class="right"></iframe>
+</body>
+
+</html>
