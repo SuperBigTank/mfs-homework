@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			.nav{
+				background: pink;
+			}
+			.nav ul{
+				width: 550px;
+				/*清除浮动*/
+				overflow: hidden;
+				margin: 0 auto;
+			}
+			.nav ul li{
+				float: left;
+				margin-right: 10px;
+			}
+			.nav ul li a{
+				width: 100px;
+				height: 30px;
+				background: red;
+				/*设置宽高起作用？  1 、块元素      2 、行内块     3 、浮动*/
+				display: block;
+				color: #fff;
+				text-align: center;
+				line-height: 30px;
+				text-decoration: none;
+			} 
+			.nav ul li a:hover{
+				text-decoration: underline;
+				background: yellow;
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div class="nav">
+			<ul>
+				<li>
+					<a href="##">码蜂社</a>
+				</li>
+				<li>
+					<a href="##">首页</a>
+				</li>
+				<li>
+					<a href="##">基础闯关班</a>
+				</li>
+				<li>
+					<a href="##">web闯关班</a>
+				</li>
+				<li>
+					<a href="##">课程选择</a>
+				</li>
+				<li>
+					<a href="##">社区</a>
+				</li>
+				<li>
+					<a href="##">关于我们</a>
+				</li>
+				<li>
+					<a href="##">登陆</a>
+				</li>
+				<li>
+					<a href="##">注册</a>
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>
