@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>flex实现圣杯布局</title>
+    <style>
+        .container {
+            width: 100%;
+            display: flex; /* 父容器设置flex布局 */
+        }
+        .middle, .left, .right {
+            min-height: 150px
+        }
+        .middle {
+            background-color: #f00;
+            flex: 1; /* 占据全部剩余空间 */
+        }
+        .left {
+            background-color: #0f0;
+            width: 200px;
+            order: -1; /* 设置容器的放置顺序 */
+        }
+        .right {
+            background-color: #00f;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 中间栏优先渲染 -->
+        <div class="middle">中间栏</div>
+        <div class="left">左边栏</div>
+        <div class="right">右边栏</div>
+    </div>
+</body>
+</html>
