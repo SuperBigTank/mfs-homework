@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>导航条</title>
+        <style type="text/css">
+            .head{
+                width: 980px;
+                height: 70px;
+                background-color: blue;
+		position:fixed
+		top:0;
+            }
+        </style>
+    <head>
+    <body>
+      <div id="warp">
+        <div class='head'></div>
+    </body>
+<script type="text/javascript">
+        window.onload = function(){
+            document.addEventListener("touchstart",function(ev){
+                ev = ev || event;
+                ev.preventDefault();    
+            })
+            ;(function(){
+                //rem适配
+                var styleNode = document.createElement("style");
+                var w = document.documentElement.clientWidth/16;
+                styleNode.innerHTML = "html{font-size:"+w+"px !important}"
+                document.head.appendChild(styleNode);    
+            })()
+            ;(function(){
+                var wrap = document.getElementById("warp")
+                for(var i=0;i<25;i++){
+                    wrap.innerHTML+="A<br/>";
+                }
+            })()
+            
+        }
+    </script>
+</html>
