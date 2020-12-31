@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>单线程模型和事件循环</title>
+</head>
+
+<body>
+    <script>
+        timerFun()
+        function timerFun() {
+            //要执行的操作
+            console.log("2s后打印");
+            var timer = setTimeout(function () {
+                timerFun()
+                clearTimeout(timer)
+            }, 2000)
+        }
+    </script>
+</body>
+
+</html>
