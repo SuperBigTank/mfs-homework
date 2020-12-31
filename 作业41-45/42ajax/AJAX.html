@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX</title>
+</head>
+<body>
+    <div id="container">
+
+    </div>
+</body>
+<script>
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            var cnt = xhr.responseText;
+            document.getElementById("container").innerText = cnt;
+            console.log(xhr.responseText)
+        }
+    }
+    xhr.open("GET","https://learning-api.mafengshe.com/news",true)
+    xhr.send();
+</script>
+</html>
