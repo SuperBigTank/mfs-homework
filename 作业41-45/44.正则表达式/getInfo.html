@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>44</title>
+</head>
+
+<body>
+    <script>
+        function addClass(str, clazz) {
+            var reg = new RegExp("\b" + clazz + "\b");
+            //已包含则无需修改
+            if (reg.test(str)) {
+                return str;
+            } else {
+                return str + " " + clazz;
+            }
+        }
+
+        function removeClass(str, clazz) {
+            var reg = new RegExp("\b" + clazz + "\b");
+            //如果未包含则无需修改
+            if (!reg.test(str)) {
+                return str;
+            } else {
+                return str.replace(reg, "");
+            }
+        }
+    </script>
+
+    <script>
+        function getData(callback) {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    callback(xhr.response);
+                }
+            }
+            xhr.open('get', 'https://jxy-github.github.io/mfs-homework/44%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/scource.html', true);
+            xhr.send(null);
+        }
+
+        function getInfo(html) {
+            var data = [];
+            var titleArray = html.match(/(?<=<h4.*>).*(?=<\/h4>)/g);
+            var teacherArray = html.match(/(?<=导师：\s*<!-- \/react-text -->\s*<!-- react-text: \d* -->).*(?=\s*<!--)/g);
+            var hourArray = html.match(/(?<=时长：\s*<!-- \/react-text -->\s*<!-- react-text: \d* -->).*(?=\s*<)/g);
+            var length = Math.min(titleArray.length, teacherArray.length, hourArray.length);
+            for (let i = 0; i < length; i++) {
+                data.push({
+                    title: titleArray[i],
+                    teacher: teacherArray[i],
+                    during: hourArray[i]
+                });
+            }
+            var inFormation = document.createElement("span");
+            for (let i = 0; i < data.length; i++) {
+                inFormation.innerHTML = inFormation.innerHTML + data[0].title + "  " + data[0].teacher + "  " + data[0].during + "</br>";
+            }
+            document.body.appendChild(inFormation);
+            console.log(data);
+            return data;
+
+        }
+        getData(getInfo);
+    </script>
+</body>
+
+</html>
