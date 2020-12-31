@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>43Circle</title>
+</head>
+
+<body>
+    <div class="container">
+        <span>点P坐标:</span></br>
+        <span>x:</span><input type="number" id="pX">
+        <span>y:</span><input type="number" id="pY"></br>
+        <button id="btnCal">计算</button>
+        <div id="show" style="height:20px"></div>
+    </div>
+    <script>
+        function isInCircle() {
+            var oStanX = 0;
+            var oStanY = 0;
+            var oPX = document.getElementById("pX").value;
+            var oPY = document.getElementById("pY").value;
+
+            var distance = (oStanX - oPX) * (oStanX - oPX) + (oStanY - oPY) * (oStanY - oPY);
+            if (distance > 1) return false;
+            else return true;
+        }
+
+        function showResult() {
+            var oShow = document.getElementById("show");
+            oShow.innerHTML = isInCircle();
+        }
+        var temp = document.getElementById("btnCal").addEventListener('click', showResult);
+    </script>
+</body>
+
+</html>
