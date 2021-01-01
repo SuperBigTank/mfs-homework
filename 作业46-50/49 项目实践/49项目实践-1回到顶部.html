@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <style>
+        .content{
+            height: 1400px;
+            width: 500px;
+            background-color: darkcyan;
+            margin: 0 auto;
+        }
+        .back-top-btn{
+            height: 60px;
+            width: 40px;
+            background-color: firebrick;
+            position: fixed;
+            bottom: 60px;
+            right: 100px;
+            font-size: 40px;
+            text-align: center;
+            color: floralwhite;
+            display: none;
+            cursor:pointer
+        }
+        .show{
+            display: block;
+        }
+  
+        
+    </style>
+</head>
+<body>
+    <div class="content"></div>
+    <div class="back-top-btn">^</div>
+    <script>
+      
+        window.onscroll=function(){
+            if(window.scrollY>600){
+                $(".back-top-btn").addClass("show")
+
+            }else{
+                $(".back-top-btn").removeClass("show")
+            }
+        }
+        $(".back-top-btn").click(function(){
+            window.scrollTo(0,0)
+        })
+
+    </script>
+</body>
+</html>

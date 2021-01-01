@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <style>
+        .item {
+            position: absolute;
+            width: 250px;
+            margin: 5px;
+            transition: all 1s;
+        }
+
+        .water-fall {
+            position: relative;
+        }
+
+        .type1 {
+            background-color: seagreen;
+            height: 250px;
+        }
+
+        .type2 {
+            background-color: sienna;
+            height: 350px;
+        }
+
+        .type3 {
+            background-color: slategrey;
+            height: 450px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="water-fall">
+        <div class="item type1">1</div>
+        <div class="item type2">2</div>
+        <div class="item type3">3</div>
+        <div class="item type1">4</div>
+        <div class="item type3">5</div>
+        <div class="item type2">6</div>
+        <div class="item type3">7</div>
+        <div class="item type2">8</div>
+        <div class="item type1">9</div>
+        <div class="item type1">10</div>
+        <div class="item type2">11</div>
+        <div class="item type3">12</div>
+    </div>
+
+    <script>
+        function findMinIndex(arr) {
+            var minIdx = 0;
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[minIdx] > arr[i]) {
+                    minIdx = i;
+                }
+            }
+            return minIdx;
+        }
+        function waterFall() {
+            var itemWidth = $(".item").outerWidth(true);
+            var containerWidth = $(".water-fall").width();
+            var cloNum = Math.floor(containerWidth / itemWidth);
+            var heights = [];
+
+            for (var i = 0; i < cloNum; i++) {
+                heights.push(0);
+            }
+            $(".item").each(function () {
+                var col = findMinIndex(heights)
+
+                $(this).css({
+                    top: heights[col] + "px",
+                    left: col * itemWidth + "px",
+                })
+                heights[col] += $(this).outerHeight(true)
+            })
+
+        }
+        window.onresize = function () {
+            waterFall()
+        }
+        waterFall()
+
+    </script>
+
+
+</body>
+
+</html>
