@@ -1,12 +1,12 @@
 1.[1,2,3].map(x => x * x);//1
 
 2.
-1 var cala = function(origin) {
-2     return function(add) {
-3     return function(mul)
-3         return (a + b)*mul;
-4     };
-5 };//非箭头函数
+ var cala = function(origin) {
+     return function(add) {
+     return function(mul)
+         return (a + b)*mul;
+     };
+ };//非箭头函数
 
 let cala = origin =>add => origin + add => (a+b)*mul//箭头函数
 
