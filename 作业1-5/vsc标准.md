@@ -15,6 +15,8 @@ VS code常用快捷键：
 
 全局搜索：ctrl + shift + f
 
+代码格式化： shift+ Alt+ f
+
 向后导航，Alt+Left
 向前导航，Alt+right
 
