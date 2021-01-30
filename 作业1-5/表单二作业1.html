@@ -11,8 +11,8 @@
       <div>
          文本:<input type="Text" name="Text" place holder="请输入用户名" />
       </div>
-      
-      <div >
+
+      <div>
          密码：<input type="password" name="pasword"><br>
       </div>
 
@@ -42,12 +42,14 @@
          <input type="radio" name="sex" value="2" />女
          <input type="radio" name="sex" value="3" />隐藏
       </div>
-      
+
       <div>
-         多选：<input type="checkbox" name="checkbox" value="HTML" />HTML<input type="checkbox" name="checkbox"
-            value="CSS" />CSS<input type="checkbox" name="checkbox" value="JS" />JS
+         多选：
+         <input type="checkbox" name="checkbox" value="HTML" />HTML
+         <input type="checkbox" name="checkbox" value="CSS" />CSS
+         <input type="checkbox" name="checkbox" value="JS" />JS
       </div>
-      
+
       <div>
          文件上传：<input type="file" name="file" accept="image/*" />
       </div>
@@ -57,22 +59,29 @@
       </div>
 
       <div>
-         多行文本控<textarea name="textarea"> default value</textarea/>  
+         多行文本框<textarea name="textarea"> default value</textarea>
       </div>
 
-      <div>下拉 
-      <select name="dropdown">
-      <option></option>
-      <option value="a">1</option>
-      <option value="b">2</option>
-      </select> 
+      <div>下拉
+         <input list="number">
+         <datalist id="number">
+            <option value="1"></option>
+            <option value="2"></option>
+         </datalist>
       </div>
 
-      <input type="submit"  value="确认" />
-      <input type="reset"  value="重置" />
-      <input type="button"  value="按钮" />
+      <div>
+         <input type="submit" value="确认" />
+         <input type="reset" value="重置" />
+      </div>
 
-      <button type="reset"> 提交按钮局 </button>
+      <div>
+         <input type="button" value="按钮" />
+      </div>
+
+      <button type="reset"> 提交按钮 </button>
    </form>
-<body>
+
+   <body>
+
 </html>
