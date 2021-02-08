@@ -1,77 +1,50 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择器作业</title>
     <style>
-        *{
-            margin: 0;
-        }
-        .title{
-            background-color: #2b99ff;
-            height: 50px;
-            line-height: 50px;
-            text-align: center;
-            color: #3d2fa2;
-
-        }
-        .user{
-            width: 180px;
-            height: 50px;
-            margin-left: 20px;
-            background-color: #7a7b50;
-            cursor: auto;
-
-        }
-        .user .msg{
-            display: none;
-            width: 200px;
-            height: 40px;
-            float: left;
-            border: 1px solid red ;
-            background-color: #787b53;
-            z-index: 2;
+        .item {
             position: relative;
+        }
 
+        .item:hover {
+            color: red;
         }
-        .user .msg a:hover{
-            cursor: pointer;
 
+        ul {
+            display: none;
+            list-style: none;
         }
-        .clearfix:after{
-        content:"0";
-        display: block;
-        clear: both;
-        visibility: hidden;
-        height: 0;
-        }
-        .user:hover .msg{
+
+        .item:hover ul {
             display: block;
-        }
-        .text{
-            font-size: 30px;
-            color: black;
-            background-color: #99aecb;
-            height: 800px;
             position: absolute;
-            width: 1500px;
-            z-index: 1;
+            top: 0;
+            left: 10px;
         }
     </style>
 </head>
+
 <body>
-    <div class="title">
-        <div class="user clearfix">导航1
-            <div class="msg"><a>1</a></div>
-            <div class="msg"><a>2</a></div>
-            <div class="msg"><a>3</a></div>
-        </div>
-        <div class="user clearfix">导航2
-            <div class="msg"><a>21</a></div>
-            <div class="msg"><a>22</a></div>
-            <div class="msg"><a>32</a></div>
-        </div>
-    </div>
+    <span class="item">
+        导航1
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </span>
+    <span class="item">
+        导航2
+        <ul>
+            <li>21</li>
+            <li>22</li>
+            <li>23</li>
+        </ul>
+    </span>
 </body>
+
 </html>
