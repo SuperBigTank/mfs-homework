@@ -1,143 +1,178 @@
 <html>
- 
+
 <head>
-<style type="text/css">
- 
-#bg{
-    height: 200px;
-    outline: red dotted thin;
-    display: inline-flex; /*不用定义此容器的宽度，宽度根据容器元素进行自适应*/
-}
- 
-.dice-base{
-    width: 100px;
-    height: 100px;
-    background-color: gray;  
-    border: 2px solid green;
-    margin-right: 10px;
-    display: flex; /*flex布局*/
-}
- 
-/*first dice*/
-.dice-1{
-    margin-left: 10px;
-    justify-content: center; /*可以使子元素水平居中*/
-}
-.one{
-    width: 30px;
-    height: 30px;
-    background-color: red;
-    border-radius: 50%; /*画圆*/
-    align-self: center; /*使自己在垂直方向居中*/
-}
- 
-/*second dice*/
-.dice-2{
-    justify-content: space-between; /*使第一个元素左对齐，第二个元素右对齐*/ 
-}
-.two{
-    width: 30px;
-    height: 30px;
-    background-color: red;
-    border-radius: 50%;
-}
-.two:nth-child(2){  /*nth-child是选择器*/
-    align-self: flex-end; /*使第二个元素自身在垂直方向上底边对齐*/
-}
- 
-/*third dice*/
-.dice-3{
-    justify-content: space-between; /*使第一个元素左对齐，最后一个元素右对齐*/ 
-}
-.three{
-    width: 30px;
-    height: 30px;
-    background-color: red;
-    border-radius: 50%;
-}
-.three:nth-child(2){  /*nth-child是选择器*/
-    align-self: center; /*使第二个元素自身在垂直方向上居中*/
-}
-.three:nth-child(3){  /*nth-child是选择器*/
-    align-self: flex-end; /*使第二个元素自身在垂直方向上底边对齐*/
-}
- 
-/*forth dice*/
-.dice-4{
-    flex-wrap: wrap;  /*当子元素超过父元素时在下一行显示*/
-    align-content: space-between; /*在垂直方向上两边对齐*/
-}
-.forth{
-    width: 30px;
-    height: 30px;
-    background-color: red;
-    border-radius: 50%;
-}
-.forth:nth-child(1){
-    margin-right: 40px; /*设置第一个元素右边距，使一行只放两个子元素*/
-}
-.forth:nth-child(3){
-    margin-right: 40px;
-}
- 
-/*five dice*/
-.dice-5{
-    flex-wrap: wrap;  /*当子元素超过父元素时在下一行显示*/
-    align-content: space-between; /*在垂直方向上两边对齐*/
-}
-.five{
-    width: 30px;
-    height: 30px;
-    background-color: red;
-    border-radius: 50%;
-}
-.five:nth-child(1){
-    margin-right: 40px; /*设置第一个元素右边距，使一行只放两个子元素*/
-}
-.five:nth-child(3){
-    margin-right: 35px; 
-    margin-left: 35px;
-}
-.five:nth-child(4){
-    margin-right: 40px; 
-}
- 
-/*six dice*/
-.dice-6{
-    flex-wrap: wrap;  /*当子元素超过父元素时在下一行显示*/
-    align-content: space-between; /*在垂直方向上两边对齐*/
-    justify-content: space-between;/*在水平方向上两边对齐*/
-}
-.six{
-    width: 30px;
-    height: 30px;
-    background-color: red;
-    border-radius: 50%;
-}
-</style>
+    <style type="text/css">
+        #bg {
+            height: 200px;
+            outline: black dotted thin;
+            display: inline-flex;
+            /*不用定义此容器的宽度，宽度根据容器元素进行自适应*/
+        }
+
+        .dice-base {
+            width: 100px;
+            height: 100px;
+            background-color: gray;
+            border: 2px solid black;
+            margin-right: 10px;
+            display: flex;
+            /*flex布局*/
+        }
+
+        /*first dice*/
+        .dice-1 {
+            margin-left: 10px;
+            justify-content: center;
+            /*可以使子元素水平居中*/
+        }
+
+        .one {
+            width: 30px;
+            height: 30px;
+            background-color: black;
+            border-radius: 50%;
+            /*画圆*/
+            align-self: center;
+            /*使自己在垂直方向居中*/
+        }
+
+        /*second dice*/
+        .dice-2 {
+            justify-content: space-between;
+            /*使第一个元素左对齐，第二个元素右对齐*/
+        }
+
+        .two {
+            width: 30px;
+            height: 30px;
+            background-color: black;
+            border-radius: 50%;
+        }
+
+        .two:nth-child(2) {
+            /*nth-child是选择器*/
+            align-self: flex-end;
+            /*使第二个元素自身在垂直方向上底边对齐*/
+        }
+
+        /*third dice*/
+        .dice-3 {
+            justify-content: space-between;
+            /*使第一个元素左对齐，最后一个元素右对齐*/
+        }
+
+        .three {
+            width: 30px;
+            height: 30px;
+            background-color: black;
+            border-radius: 50%;
+        }
+
+        .three:nth-child(2) {
+            /*nth-child是选择器*/
+            align-self: center;
+            /*使第二个元素自身在垂直方向上居中*/
+        }
+
+        .three:nth-child(3) {
+            /*nth-child是选择器*/
+            align-self: flex-end;
+            /*使第二个元素自身在垂直方向上底边对齐*/
+        }
+
+        /*forth dice*/
+        .dice-4 {
+            flex-wrap: wrap;
+            /*当子元素超过父元素时在下一行显示*/
+            align-content: space-between;
+            /*在垂直方向上两边对齐*/
+        }
+
+        .forth {
+            width: 30px;
+            height: 30px;
+            background-color: black;
+            border-radius: 50%;
+        }
+
+        .forth:nth-child(1) {
+            margin-right: 40px;
+            /*设置第一个元素右边距，使一行只放两个子元素*/
+        }
+
+        .forth:nth-child(3) {
+            margin-right: 40px;
+        }
+
+        /*five dice*/
+        .dice-5 {
+            flex-wrap: wrap;
+            /*当子元素超过父元素时在下一行显示*/
+            align-content: space-between;
+            /*在垂直方向上两边对齐*/
+        }
+
+        .five {
+            width: 30px;
+            height: 30px;
+            background-color: black;
+            border-radius: 50%;
+        }
+
+        .five:nth-child(1) {
+            margin-right: 40px;
+            /*设置第一个元素右边距，使一行只放两个子元素*/
+        }
+
+        .five:nth-child(3) {
+            margin-right: 35px;
+            margin-left: 35px;
+        }
+
+        .five:nth-child(4) {
+            margin-right: 40px;
+        }
+
+        /*six dice*/
+        .dice-6 {
+            flex-wrap: wrap;
+            /*当子元素超过父元素时在下一行显示*/
+            align-content: space-between;
+            /*在垂直方向上两边对齐*/
+            justify-content: space-between;
+            /*在水平方向上两边对齐*/
+        }
+
+        .six {
+            width: 30px;
+            height: 30px;
+            background-color: black;
+            border-radius: 50%;
+        }
+    </style>
 </head>
- 
-<body>    
- 
+
+<body>
+
     <div id="bg">
         <!-- first dice  -->
-        <div class="dice-base dice-1"> 
+        <div class="dice-base dice-1">
             <div class="one"></div>
         </div>
- 
-         <!-- second dice  -->
+
+        <!-- second dice  -->
         <div class="dice-base dice-2">
-           <div class="two"></div>
-           <div class="two"></div>
+            <div class="two"></div>
+            <div class="two"></div>
         </div>
- 
+
         <!-- third dice  -->
         <div class="dice-base dice-3">
             <div class="three"></div>
             <div class="three"></div>
             <div class="three"></div>
         </div>
- 
+
         <!-- forth dice  -->
         <div class="dice-base dice-4">
             <div class="forth"></div>
@@ -145,7 +180,7 @@
             <div class="forth"></div>
             <div class="forth"></div>
         </div>
- 
+
         <!-- five dice  -->
         <div class="dice-base dice-5">
             <div class="five"></div>
@@ -154,7 +189,7 @@
             <div class="five"></div>
             <div class="five"></div>
         </div>
- 
+
         <!-- five dice  -->
         <div class="dice-base dice-6">
             <div class="six"></div>
@@ -164,11 +199,12 @@
             <div class="six"></div>
             <div class="six"></div>
         </div>
- 
+
     </div>
-    
-<script>
- 
-</script>
+
+    <script>
+
+    </script>
 </body>
+
 </html>

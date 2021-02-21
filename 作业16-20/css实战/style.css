@@ -172,10 +172,10 @@ svg {
 
 .side-btn {
     color: white;
-    width: 100%;
+    width: 105%;
     height: 30px;
     background: #f4645f;
-    margin: 4px;
+    margin: 5px;
     padding: 10px -1px;
     border-radius: 2px;
     display: flex;
@@ -246,6 +246,9 @@ svg {
     color: white;
 }
 
+.foot-mes-title:hover {
+    color: #f4645f;
+}
 .foot-botton {
     margin: 30px 0;
     padding: 1px;
