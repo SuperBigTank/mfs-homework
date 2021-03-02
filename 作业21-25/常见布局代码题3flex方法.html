@@ -15,46 +15,34 @@
 
         .main {
             flex: 1;
-            background-color: aqua;
+            /* flex: 1;为flex: grow 1;与窗口同比例增长// flex-shrink: 1;与窗口同比例放大// flex: basis 0;的简写 */
+            background-color: red;
             text-align: center;
-            
+
         }
 
         .sub {
             width: 100px;
-            background-color: green;
+            background-color: gold;
             text-align: center;
         }
 
         .extra {
             width: 200px;
-            background-color: chartreuse;
+            background-color: green;
             text-align: center;
         }
     </style>
 
 </head>
 
-<body>
-    <div class="cont">
-        <div class="main">main</div>
-        <div class="sub">sub</div>
-        <div class="extra">extra</div>
-    </div>
+<!-- flex实现圣杯布局的顺序是sub,main,extra,即从左至右 -->
+<div class="cont">
+    <div class="sub">sub</div>
+    <div class="main">main</div>
+    <div class="extra">extra</div>
+</div>
 
-    <div class="cont">
-
-        <div class="sub">sub</div>
-        <div class="main">main</div>
-        <div class="extra">extra</div>
-    </div>
-
-    <div class="cont">
-
-        <div class="sub">sub</div>
-        <div class="extra">extra</div>
-        <div class="main">main</div>
-    </div>
 </body>
 
 </html>
