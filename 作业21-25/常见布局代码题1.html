@@ -14,11 +14,11 @@
         }
 
         .container1 {
-            text-align: center;
+            text-align: center;/*设置父元素*/
         }
 
         .item1 {
-            display: inline;
+            display: inline;/*设置子元素*/
             line-height: 100px;
         }
 
@@ -34,12 +34,12 @@
             left: 0;
             right: 0;
             bottom: 0;
-            margin: auto;
+            margin: auto;/*设置左右值为margin*/
         }
 
         .container3 {
-            display: flex;
-            justify-content: center;
+            display: flex;/*设置父元素*/
+            justify-content: center;/*设置父元素*/
             align-items: center;
         }
     </style>
@@ -47,20 +47,21 @@
 </head>
 
 <body>
-    1.inline
-    <div class="container1">
-        <div class="item1">
+    1.不定宽块状元素
+    <!-- 适用于不定宽块状元素 -->
+    <div class="container1"><!-- 父元素 -->
+        <div class="item1"><!-- 子元素 -->
             this is item
         </div>
     </div>
 
-    2.定宽block
+    2.定宽块状元素
     <div class="container2">
         <div class="item2">
             this is item
         </div>
     </div>
-    3.flex
+    3.通用方法flex
     <div class="container3">
         <div class="item3">
             this is item
