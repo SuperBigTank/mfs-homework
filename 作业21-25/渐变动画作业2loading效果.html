@@ -24,7 +24,7 @@
          top: 50%;
          left: 50%;
          border-radius: 50%;
-         animation: move 2.5s linear infinite alternate;/*动画指令*/
+         animation: move 2.5s linear infinite alternate;/*动画指令，linear是匀速，infinite是无限次播放*/
       }
 
       [class*="line"] {
@@ -36,19 +36,19 @@
          left: 10px;
       }
 
-      .line1 {
+      .line1 {/* 起始位置0度 */
          transform: rotate(0deg);
       }
 
-      .line2 {
+      .line2 {/* 起始位置90度 */
          transform: rotate(90deg);
       }
 
-      .line3 {
+      .line3 {/* 起始位置180度 */
          transform: rotate(180deg);
       }
 
-      .line4 {
+      .line4 {/* 起始位置270度 */
          transform: rotate(270deg);
       }
 
@@ -77,7 +77,7 @@
       }
 
 
-
+      /* 定义颜色 */
       .c-green {
          background-color: green;
       }
@@ -94,6 +94,7 @@
          background-color: #ff5955;
       }
 
+      /* 定义动画路径 */
       @keyframes move {
          0% {
             transform: translate(0, 0);
@@ -112,6 +113,7 @@
          }
       }
 
+      /* 定义旋转动画 */
       @keyframes rot {
          from {
             transform: rotate(0deg);
