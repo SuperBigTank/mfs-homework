@@ -18,7 +18,7 @@
     <script>
         function getback(element) {
             var str1 = element.value;
-            var str2 = str1.slice(str1.lastIndexOf("."));
+            var str2 = str1.slice(str1.lastIndexOf("."));/* lastIndexOf(".")从末尾开始查找， F保留.后的内容 */
             if (str2.length != 1) {
                 document.getElementById('textback').innerHTML = str2;
             } else document.getElementById('textback').innerHTML = '';
@@ -40,7 +40,7 @@
 
             var str2 = '';
             for (var i = 0; i < strArray.length; i++) {
-                var l = strArray[i].charAt(0).toUpperCase();
+                var l = strArray[i].charAt(0).toUpperCase();/* 转换大写 */
                 str2 += l + strArray[i].substring(1)
                 if (i < strArray.length - 1) str2 += ' ';
             }
