@@ -10,7 +10,7 @@
 <body>
     <script>
         function getSuffix(file) {
-            return file.slice(file.lastIndexOf(".") + 1, file.length);
+            return file.slice(file.lastIndexOf(".") + 1, file.length);/* slice里面第一个表示数到.处的位置，第二个表示从点处出发吧后面的打印出来（其实就是后缀） */
         }
         var str = "type.css";
         console.log(getSuffix(str))
