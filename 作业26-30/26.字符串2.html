@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>码蜂社前端作业26-2</title>
+</head>
+
+<body>
+    <script>
+        function Up(title) {
+            var words = title.trim().toLowerCase().split(' ');
+            for (var i = 0; i < words.length; i++) {
+                words[i] = words[i].charAt(0).toUpperCase() + words[i].substring(1);
+            }
+            return words.join(' ');
+        }
+        var str = "This is JavaScript ";
+        console.log(str)
+
+    </script>
+</body>
+
+</html>
