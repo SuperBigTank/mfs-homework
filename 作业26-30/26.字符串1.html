@@ -9,13 +9,12 @@
 
 <body>
     <script>
-        function getSuffix(file) {
-            return file.slice(file.lastIndexOf(".") + 1, file.length);
-        }
         var str = "type.css";
-        console.log(getSuffix(str))
+        var type = str.slice(str.lastIndexOf(".") + 1, str.length);
+        console.log(type)
         /* slice里面第一个表示数到.处的位置
-        第二个表示从点处出发吧后面的打印出来（其实就是后缀） */
+        第二个表示从点处出发吧后面的打印出来（其实就是后缀）
+        +1的原因，slice会包括查询到的.那个位置 */
     </script>
 </body>
 
