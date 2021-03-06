@@ -9,15 +9,16 @@
 
 <body>
     <script>
-        function Up(title) {
-            var words = title.trim().toLowerCase().split(' ');
-            for (var i = 0; i < words.length; i++) {
-                words[i] = words[i].charAt(0).toUpperCase() + words[i].substring(1);
-            }
-            return words.join(' ');/* 将words以中间有空格的方式放入一个字符串 */
+        var str = "this is javaScript";
+        var words = str.split(' ');//以空格为依据分割字符串
+        for (var i = 0; i < words.length; i++) {
+            var s = words[i].slice(0, 1).toUpperCase();//截取数组元素的首字母 - 转成大写
+            var h = words[i].slice(1);//截取剩余的字母
+            words[i] == s + h;//拼接首字母和剩余字母，替换数组中的元素
         }
-        var str = "this is javaScript ";
-        console.log(Up(str))
+        return words.join(' ');/* 将words以中间插入空格的方式放入一个字符串 */
+
+        console.log(words.join)
 
     </script>
 </body>
