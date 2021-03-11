@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>码蜂社前端作业35</title>
+</head>
+
+<body>
+    <ul id="list"></ul>
+    <script>
+        var oUl = document.getElementById("list");//查找list节点
+        var oLi1 = document.createElement("li");//在list下生成li节点
+        var oLi2 = document.createElement("li");//在list下生成li节点
+        oLi1.innerText = "1";
+        oLi2.innerText = "2";
+        oLi1.appendChild(oUl);//在oUl之前插入oLi1
+        oLi2.appendChild(oLi1);//在oLi1之前插入oLi2
+    </script>
+</body>
+
+</html>
