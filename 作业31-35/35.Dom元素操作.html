@@ -13,8 +13,8 @@
         var oUl = document.getElementById("list");//查找list节点
         var oLi1 = document.createElement("li");//在list下生成li节点
         var oLi2 = document.createElement("li");//在list下生成li节点
-        oLi1.innerText = "1";
-        oLi2.innerText = "2";
+        oLi1.innerHTML = "1";
+        oLi2.innerHTML = "2";
         oLi1.appendChild(oUl);//在oUl之前插入oLi1
         oLi2.appendChild(oLi1);//在oLi1之前插入oLi2
     </script>
