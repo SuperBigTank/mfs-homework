@@ -14,14 +14,14 @@
         setInterval(() => {
             var canvas = document.getElementById("canvas");
             var ctx = canvas.getContext('2d');
-            ctx.clearRect(0, 0, 200, 200);
+            ctx.clearRect(0, 0, 200, 200);//擦去上一帧留下的东西
             ctx.save();
-            ctx.strokeStyle = '#0000FF';
+            ctx.strokeStyle = 'black';
             ctx.beginPath();
-            ctx.lineWidth = 8;
-            ctx.arc(100, 100, 75, 0, 2 * Math.PI);
-            ctx.stroke();
-
+            ctx.lineWidth = 5;//轮廓宽度
+            ctx.arc(100, 100, 75, 0, 2 * Math.PI);//绘制最外圈盘面
+            ctx.stroke();//设置为空心的
+            ctx.lineWidth = 5
             ctx.restore();
             ctx.save();
 
@@ -30,12 +30,14 @@
             ctx.lineWidth = 3;
             //表盘
             for (var i = 0; i < 12; i++) {
-                ctx.moveTo(100 + 66 * Math.sin(Math.PI * i / 6), 100 + 66 * Math.cos(Math.PI * i / 6))
-                ctx.lineTo(100 + 55 * Math.sin(Math.PI * i / 6), 100 + 55 * Math.cos(Math.PI * i / 6));
+                ctx.strokeStyle = 'red'
+                ctx.moveTo(100 + 75 * Math.sin(Math.PI * i / 6), 100 + 75 * Math.cos(Math.PI * i / 6))//小时刻度起点，在转盘上
+                ctx.lineTo(100 + 60 * Math.sin(Math.PI * i / 6), 100 + 60 * Math.cos(Math.PI * i / 6));//小时刻度终点，在时钟内
             }
             for (var i = 0; i < 60; i++) {
-                ctx.moveTo(100 + 66 * Math.sin(Math.PI * i / 30), 100 + 66 * Math.cos(Math.PI * i / 30))
-                ctx.lineTo(100 + 62 * Math.sin(Math.PI * i / 30), 100 + 62 * Math.cos(Math.PI * i / 30));
+                ctx.strokeStyle = 'blue'
+                ctx.moveTo(100 + 70 * Math.sin(Math.PI * i / 30), 100 + 70 * Math.cos(Math.PI * i / 30))//分秒刻度起点，在转盘上
+                ctx.lineTo(100 + 65 * Math.sin(Math.PI * i / 30), 100 + 65 * Math.cos(Math.PI * i / 30));//分秒刻度终点，在时钟内
             }
 
             ctx.stroke();
@@ -46,35 +48,35 @@
             ctx.beginPath();
 
             var date = new Date();
-            var hours = date.getHours();
+            var hours = date.getHours();//获取当前小时
             if (hours >= 12) {
-                hours = hours - 12;
+                hours = hours - 12;//当为PM时，-12
             }
-            var min = date.getMinutes();
-            var sec = date.getSeconds();
+            var min = date.getMinutes();//获取当前分钟
+            var sec = date.getSeconds();//获取当前秒钟
 
-            //时针
+            //时针（绘制方向由外指向内）
             ctx.lineCap = 'round';
             ctx.lineWidth = 6;
-            ctx.moveTo(100 + 45 * Math.sin((Math.PI * hours / 6) + (min / 60) * Math.PI / 6), 100 - 45 * Math.cos((Math.PI * hours / 6) + (min / 60) * Math.PI / 6));
-            ctx.lineTo(100 - 15 * Math.sin((Math.PI * hours / 6) + (min / 60) * Math.PI / 6), 100 + 15 * Math.cos((Math.PI * hours / 6) + (min / 60) * Math.PI / 6));
+            ctx.moveTo(100 + 45 * Math.sin((Math.PI * hours / 6) + (min / 60) * Math.PI / 6), 100 - 45 * Math.cos((Math.PI * hours / 6) + (min / 60) * Math.PI / 6));//时钟起点
+            ctx.lineTo(100 - 15 * Math.sin((Math.PI * hours / 6) + (min / 60) * Math.PI / 6), 100 + 15 * Math.cos((Math.PI * hours / 6) + (min / 60) * Math.PI / 6));//时钟终点
             ctx.stroke();
-            //分针
+            //分针（绘制方向由外指向内）
             ctx.lineWidth = 4;
-            ctx.moveTo(100 + 55 * Math.sin(Math.PI * min / 30), 100 - 55 * Math.cos(Math.PI * min / 30));
-            ctx.lineTo(100 - 20 * Math.sin(Math.PI * min / 30), 100 + 20 * Math.cos(Math.PI * min / 30));
+            ctx.moveTo(100 + 55 * Math.sin(Math.PI * min / 30), 100 - 55 * Math.cos(Math.PI * min / 30));//分钟起点
+            ctx.lineTo(100 - 20 * Math.sin(Math.PI * min / 30), 100 + 20 * Math.cos(Math.PI * min / 30));//分钟终点
             ctx.stroke();
 
-            //秒针
+            //秒针（绘制方向由外指向内）
             ctx.beginPath();
             ctx.lineWidth = 2;
-            ctx.strokeStyle = '#ff0000';
-            ctx.arc(100, 100, 6, 0, 2 * Math.PI);
-            ctx.moveTo(100 + 45 * Math.sin(Math.PI * sec / 30), 100 - 45 * Math.cos(Math.PI * sec / 30));
-            ctx.lineTo(100 - 23 * Math.sin(Math.PI * sec / 30), 100 + 23 * Math.cos(Math.PI * sec / 30));
+            ctx.strokeStyle = 'red';
+            ctx.arc(100, 100, 5, 0, 2 * Math.PI);//中间那个红色小圈
+            ctx.moveTo(100 + 65 * Math.sin(Math.PI * sec / 30), 100 - 65 * Math.cos(Math.PI * sec / 30));//秒钟起点
+            ctx.lineTo(100 - 20 * Math.sin(Math.PI * sec / 30), 100 + 20 * Math.cos(Math.PI * sec / 30));//秒钟终点
             ctx.stroke();
             ctx.beginPath()
-            ctx.arc(100 + 50 * Math.sin(Math.PI * sec / 30), 100 - 50 * Math.cos(Math.PI * sec / 30), 5, 0, 2 * Math.PI);
+            ctx.arc(100 + 45 * Math.sin(Math.PI * sec / 30), 100 - 45 * Math.cos(Math.PI * sec / 30), 5, 0, 2 * Math.PI);//秒钟上的圈
             ctx.stroke();
 
             ctx.beginPath();
