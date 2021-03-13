@@ -11,10 +11,10 @@
 <body>
     <canvas id="canvas" width="200px" height="200px"></canvas>
     <script>
-        setInterval(() => {
+        setInterval(() => {//按照指定时间每1s调用一次函数
             var canvas = document.getElementById("canvas");
             var ctx = canvas.getContext('2d');
-            ctx.clearRect(0, 0, 200, 200);//擦去上一帧留下的东西
+            ctx.clearRect(0, 0, 200, 200);//擦去上一次函数绘制留下的东西
             ctx.save();
             ctx.strokeStyle = 'black';
             ctx.beginPath();
