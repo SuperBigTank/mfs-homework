@@ -1,65 +1,112 @@
-<!DOCTYPE html>	
-	<html lang="en">
-	<head>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>DOM Tab</title>
 	<style>
-	.container{
-		display: flex;
-		width: 100%;
-		height: 50px;
-		background-color: darkseagreen;
-	}
-	.tab{
-		width:33%;
-		height: 100%;
-		text-align: center;
-		line-height: 50px;
-		font-size: 17px;
-	}
-	.item{
-		display: none;
-		width: 100%;
-		height: 200px;
-		background-color: darksalmon;
-	}
+		.container {
+			display: flex;
+			width: 100%;
+			height: 50px;
+			background-color: aqua;
+		}
+		.footer {
+			display: flex;
+			width: 100%;
+			height: 50px;
+			background-color: gold;
+		}
+
+		.tab {
+			width: 33%;
+			height: 100%;
+			text-align: center;
+			line-height: 50px;
+			font-size: 17px;
+		}
+
+		.item {
+			display: none;
+			width: 100%;
+			height: 200px;
+			background-color: darksalmon;
+		}
 	</style>
-	</head>
-	<body>
+</head>
+
+<body>
 	<div class="container">
-	<div class="tab" id="tab1">标签1</div>
-	<div class="tab" id="tab2">标签2</div>
-	<div class="tab" id="tab3">标签3</div>
+		<div class="tab" id="tab1">标签1</div>
+		<div class="tab" id="tab2">标签2</div>
+		<div class="tab" id="tab3">标签3</div>
+		</div>
+	<div class="footer">
+		<div class="tab" id="tab13">标签1和3</div>
+			<div class="tab" id="tab12">标签1和2</div>
+		<div class="tab" id="tab23">标签2和3</div>
+		<div class="tab" id="taball">打开全部</div>
 	</div>
 	<div class="content">
-	<div class="item" id="item1" style="display: block;"><h2>标签页1</h2></div>
-	<div class="item" id="item2"><h2>标签页2</h2></div>
-	<div class="item" id="item3"><h2>标签页3</h2></div>
+		<div class="item" id="item1" >
+			<h2>标签页1</h2>
+		</div>
+		<div class="item" id="item2">
+			<h2>标签页2</h2>
+		</div>
+		<div class="item" id="item3">
+			<h2>标签页3</h2>
+		</div>
 	</div>
-	<script>
-	document.getElementById("tab1").onclick = selecttab1;
-	document.getElementById("tab2").onclick = selecttab2;
-	document.getElementById("tab3").onclick = selecttab3;
-	var item1 = document.getElementById("item1");
-	var item2 = document.getElementById("item2");
-	var item3 = document.getElementById("item3");
-	function selecttab1(){
-	item1.setAttribute("style", "display:block;");
-	item2.setAttribute("style", "display:none;");
-	item3.setAttribute("style", "display:none;");
-	}
-	function selecttab2(){
-	item2.setAttribute("style", "display:block;");
-	item1.setAttribute("style", "display:none;");
-	item3.setAttribute("style", "display:none;");
-	}
-	function selecttab3(){
-	item3.setAttribute("style", "display:block;");
-	item2.setAttribute("style", "display:none;");
-	item1.setAttribute("style", "display:none;");
-	}
+	<script>//DOM指定事件响应函数，点击时返回指定的元素节点，函数分配给指定id的元素
+		document.getElementById("tab1").onclick = selecttab1;
+		document.getElementById("tab2").onclick = selecttab2;
+		document.getElementById("tab3").onclick = selecttab3;
+		document.getElementById("tab12").onclick = selecttab12;
+		document.getElementById("tab13").onclick = selecttab13;
+		document.getElementById("tab23").onclick = selecttab23;
+		document.getElementById("taball").onclick = selecttall;
+		var item1 = document.getElementById("item1");
+		var item2 = document.getElementById("item2");
+		var item3 = document.getElementById("item3");
+		function selecttab1() {
+			item1.setAttribute("style", "display:block;");
+			item2.setAttribute("style", "display:none;");
+			item3.setAttribute("style", "display:none;");
+		}
+		function selecttab2() {
+			item1.setAttribute("style", "display:none;");
+			item2.setAttribute("style", "display:block;");
+			item3.setAttribute("style", "display:none;");
+		}
+		function selecttab3() {
+			item1.setAttribute("style", "display:none;");
+			item2.setAttribute("style", "display:none;");
+			item3.setAttribute("style", "display:block;");
+		}
+		function selecttab12() {
+			item1.setAttribute("style", "display:block;");
+			item2.setAttribute("style", "display:block;");
+			item3.setAttribute("style", "display:none;");
+		}
+		function selecttab13() {
+			item1.setAttribute("style", "display:block;");
+			item2.setAttribute("style", "display:none;");
+			item3.setAttribute("style", "display:block;");
+		}
+		function selecttab23() {
+			item1.setAttribute("style", "display:none;");
+			item2.setAttribute("style", "display:block;");
+			item3.setAttribute("style", "display:block;");
+		}
+		function selecttall() {
+			item1.setAttribute("style", "display:block;");
+			item2.setAttribute("style", "display:block;");
+			item3.setAttribute("style", "display:block;");
+		}
 	</script>
-	</body>
-	</html>
+</body>
+
+</html>
