@@ -9,43 +9,65 @@
 </head>
 
 <body>
-
-
-    <div id="award">点击“开始“按钮，开始抽奖！</div>
-    <div class="action">
-        <button id="start">开 始</button>
-        <button id="stop">停 止</button>
+    <div class="container">
+        <div class="toptext">
+            <div id="award">点击“开始“按钮，开始抽奖！</div>
+        </div>
+        <div class="action">
+            <button id="start">开 始</button>
+            <button id="stop">停 止</button>
+        </div>
     </div>
-
     <script>
-        let timeCnt;
-        let award = document.getElementById("award");
+        function random() {
+            var m;
+            var ran = Math.trunc(Math.random() * 100); //产生0 -99的随机数
+            if (ran <= 1) m = 0;//概率为1%
+            else if (ran <= 11) m = 1;//概率为10%
+            else if (ran <= 41) m = 2;//概率为30%
+            else if (ran <= 81) m = 3;//概率为40%
+            else  m = 4;//概率为19%
+            return m;
+        }
+        var content = document.getElementById("award");
 
-        function getAword() {
-            let num = Math.ceil(Math.random() * 100);
-            let text = '';
-            if (num <= 1) text = "特等奖！";
-            else if (num <= 11) text = "一等奖！";
-            else if (num <= 41) text = "二等奖！";
-            else if (num <= 81) text = "三等奖！";
-            else text = "鼓励奖！";
-            award.innerText = text;
+        function award() {
+            var choose = random();
+            switch (choose) {
+                case 0:
+                    content.innerHTML = "特等奖！";
+                    break;
+                case 1:
+                    content.innerHTML = "一等奖！";
+                    break;
+                case 2:
+                    content.innerHTML = "二等奖！";
+                    break;
+                case 3:
+                    content.innerHTML = "三等奖！";
+                    break;
+                case 4:
+                    content.innerHTML = "鼓励奖！";
+                    break;
+            }
         }
 
-        function startAward() {
-            if (timeCnt === undefined) timeCnt = setInterval(getAword, 10);
-        }
+        var oStar = document.getElementById("start");
+        var oStop = document.getElementById("stop");
+        var go;
+        var once = 0;
+        oStar.onclick = function getAward() {
+            if (once == 0) {
+                go = setInterval(award, 10);//每10ms执行一次
+                once = 1;
+            }
 
-        function stopAward() {
-            window.clearInterval(timeCnt);
-            timeCnt = undefined;
-        }
-
-        document.getElementById("start").addEventListener("click", startAward);
-        document.getElementById("stop").addEventListener("click", stopAward);
+        };
+        oStop.onclick = function stop() {
+            clearInterval(go);
+            once = 0;
+        };
     </script>
-
-
 </body>
 
 </html>
