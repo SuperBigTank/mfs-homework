@@ -1,138 +1,227 @@
 <!doctype html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>38-2-翻页</title>
-<style>
-	body{
-		margin: 0;
-		padding: 0;
-	}
-	.banner{
-		height: 270px;
-		background-image: url(images/banner.jpg);
-	}
-	.list{
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-evenly;
-	}
-	.item{
-		width: 22%;
-		height: 150px;
-		border-radius: 10px;
-		background-color: #4cd8e0;
-		position: relative;
-		overflow: hidden;
-		margin: 20px;
-	}
-	.num{
-		width: 70px;
-		height: 70px;
-		border-radius: 50%;
-		position: absolute;
-		top:-15px;
-		left:-15px;
-		background-color: #20b6d2;
-		text-align: center;
-		line-height: 70px;
-		font-size: 24px;
-	}
-	.title{
-		height:45px;
-		background-color: #00474c;
-		color: white;
-		position: absolute;
-		bottom: 0;
-		width: 100%;
-		line-height: 45px;
-		text-align: center;
-	}
-	
-	.pager{ 
-		text-align: center;
-	}
-	.pager a{
-		margin: 20px;
-	}
-</style>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Dom实战前端翻页</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+		}
+
+
+		.header {
+			height: 55px;
+			line-height: 55px;
+			font-size: 18px;
+			color: #7e8173;
+			position: relative;
+			/*min-width: 1032px;*/
+			width: 100%;
+			overflow: hidden;
+			background: #fff;
+			border-bottom: 1px solid rgba(30, 35, 42, .06);
+			box-shadow: 0 1px 3px 0 rgba(0, 34, 77, .05);
+			background-clip: content-box;
+		}
+
+
+		.banner {
+			background-image: url(https://work.mafengshe.com/static/imgs/banner.jpg);
+			text-align: center;
+			height: 270px;
+			padding: 10px;
+			margin-top: -1px;
+
+
+		}
+
+		.ba-content {
+			font-size: 46px;
+			font-weight: 700;
+			color: rgb(255, 255, 255);
+			text-align: center;
+		}
+
+		.list {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-evenly;
+		}
+
+		.item {
+			width: 20%;
+			height: 150px;
+			background-color: #4cd8e0;
+			margin: 20px 10px;
+			border-radius: 10px;
+			position: relative;
+			overflow: hidden;
+
+		}
+
+		.num {
+			width: 70px;
+			height: 70px;
+			border-radius: 50%;
+			position: absolute;
+			top: -15px;
+			left: -15px;
+			background-color: #20b6d2;
+			text-align: center;
+			line-height: 70px;
+			font-size: 24px;
+		}
+
+		.title {
+			height: 45px;
+			background-color: #00474c;
+			color: white;
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			line-height: 45px;
+			text-align: center;
+		}
+
+		.pager {
+			display: flex;
+			justify-content: center;
+		}
+
+		.pager a {
+			margin: 20px;
+		}
+
+		.red {
+			background-color: rgb(238, 110, 115);
+			padding: 4px;
+		}
+
+		.white {
+			background-color: white;
+			padding: 4px;
+		}
+	</style>
 </head>
 
 <body>
-<div class="banner"></div>
-<div class="list" id="list">
-	<div class="item">
-		<div class="num">1</div>
-		<div class="title">标题1</div>
+
+
+	<!--导航栏-->
+	<header class="header" id="header">
+		<div class="">
+			<div class="header-logo left">
+				<a href="https://work.mafengshe.com/" style="color:#7e8173">码蜂社 <span
+						style="font-size:20px;font-weight:700;">·</span> 作业闯关</a>
+			</div>
+		</div>
+	</header>
+
+	<!-- 顶部 -->
+	<div class="banner">
+		<div class="ba-content">
+			<p>一分耕耘 一分收获</p>
+			<p style="font-size:28px;margin-top: 50px;">NO PAINS NO GAINS</p>
+		</div>
 	</div>
-</div>
 
-<div class="pager" id="pager"> </div>
-<script>
-var iList = document.getElementById("list");
-function creatItem(num, title) {
-var dom = document.createElement("div");
-dom.setAttribute("class", "item");
-var html = '<div class="num">' + num + '</div>' +'<div class="title">' + title + '</div>';
-dom.innerHTML = html;
-return dom;
-}
-var data = [];
-for (var i = 1; i < 50; i++) {
-data.push({ num: i, title: '标题' + i });
-}
-function getData(page) {
-return data.slice(page * 12, page * 12 + 12);
-}
-function fillDom(page) {
-while (iList.hasChildNodes()) {
-iList.removeChild(iList.lastChild)
-}
+	<div class="list" id="list">
+		<div class="item">
+			<div class="num">1</div>
+			<div class="title">标题1</div>
+		</div>
+	</div>
 
-var data = getData(page);
-var doms = data.map(function (i) {
-return creatItem(i.num, i.title)
-})
-doms.forEach(function (i) {
-iList.appendChild(i)
-})
-}
-fillDom(0)
-function createPage(page) {
-var html = Number(page) + 1
-var dom = document.createElement("a")
-dom.setAttribute("href", "#")
-dom.innerHTML = html
-return dom
-}
-var pager = document.getElementById("pager")
-function fillPager() {
-while (pager.hasChildNodes()) {
-pager.removeChild(pager.lastChild)
-}
-var pageData = []
-for (i = 0; i < parseInt(50 / 12); i++) {
-pageData.push(i)
-}
-var doms = []
-for(i in pageData){
-doms.push(createPage(i))
-}
-doms.forEach(function (i) {
-pager.appendChild(i)
-})
-}
-fillPager()
-var pages = document.querySelectorAll(".pager a")
-for (let i = 0; i < pages.length; i++) {
-pages[i].addEventListener("click", function () {
-fillDom(i)
-})
-}
+	<div class="pager" id="pager"> </div>
+	<script>
+		var iList = document.getElementById("list");
 
-</script>
+		//生成item的函数
+		function creatItem(num, title) {
+			var dom = document.createElement("div");
+			dom.setAttribute("class", "item");
+			var html = '<div class="num">' + num + '</div>' + '<div class="title">' + title + '</div>';
+			dom.innerHTML = html;
+			return dom;
+		}
+
+		//data数组
+		var data = [];
+		for (var i = 1; i < 50; i++) {
+			data.push({ num: i, title: '标题' + i });
+		}
+
+		//获取每一页data的函数
+		function getData(page) {
+			return data.slice(page * 12, page * 12 + 12);
+		}
+
+		//添加item的函数
+		function fillDom(page) {
+			while (iList.hasChildNodes()) {
+				iList.removeChild(iList.lastChild)
+			}
+
+			var data = getData(page);
+			var doms = data.map(function (i) {
+				return creatItem(i.num, i.title)
+			})
+			doms.forEach(function (i) {
+				iList.appendChild(i)
+			})
+		}
+
+
+		fillDom(0)//生成page
+		function createPage(page) {
+			var html = Number(page) + 1
+			var dom = document.createElement("a")
+			dom.setAttribute("href", "#")
+			dom.innerHTML = html
+			return dom
+		}
+		var pager = document.getElementById("pager")
+
+
+		function fillPager() {
+
+			//清除 list 所有子节点
+			while (pager.hasChildNodes()) {
+				pager.removeChild(pager.lastChild)
+			}
+
+			var pageData = []//动态获取page页数
+			for (i = 0; i < parseInt(50 / 12); i++) {
+				pageData.push(i)
+			}
+			var doms = []
+			for (i in pageData) {
+				doms.push(createPage(i))
+			}
+			doms.forEach(function (i) {
+				pager.appendChild(i)
+			})
+		}
+
+		//点击不同页码，获取不同的item
+		fillPager()
+		var pages = document.querySelectorAll(".pager a")
+		for (let i = 0; i < pages.length; i++) {
+			pages[i].addEventListener("click", function () {
+				fillDom(i);
+				for (j = 0; j < pages.length; j++) {
+					pages[j].className = "white";
+				}
+				pages[i].className = "red";
+			})
+		}
+
+	</script>
 
 </body>
+
 </html>
