@@ -52,8 +52,8 @@
             }
         }
 
-        document.getElementById("start").onclick=getAward;
-        document.getElementById("stop").onclick=stop
+        document.getElementById("start").onclick=getAward;//DOM指定事件响应函数，点击时返回指定的元素节点，函数分配给指定id的元素
+        document.getElementById("stop").onclick=stop;
         var go;
         var once = 0;
         function getAward() {
