@@ -1,75 +1,56 @@
 <!doctype html>
-<html>
+<html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>38-1</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>38DOM实战表单验证</title>
 </head>
 
 <body>
-<form id="signup" action="#" target="_blank" onSubmit="return onSignupFormSubmit()">
+	<form id="signup" action="#" target="_blank" onsubmit="return onSignupFormSubmit()">
+		<p id="signup-error" style="color:red"></p>
+		<p>
+			用户名: <input id="Username" type="text" name="Username">
+		</p>
+		<p>
+			口令: <input id="Password" type="password" name="password">
+		</p>
+		<p>
+			重复口令: <input id="Password2" type="password">
+		</p>
+		<p>
+			<button type="submit">提交</button> <button type="reset">重置</button>
+		</p>
+		<script>
+			function onSignupFormSubmit() {
+				var oUsername = document.getElementById("Username");
+				var oPassword = document.getElementById("Password");
+				var oPassword2 = document.getElementById("Password2");
+				var oError = document.getElementById("signup-error");
 
-<p>
-	用&nbsp;户名：
-	<input id="username" type="text" name="username">
-</p>
-<p id="signup-error1" style="color: red"></p>
-<p>
-	口&nbsp;&nbsp;令：
-	<input type="password" id="password" name="password">
-</p>
-<p id="signup-error2" style="color: red"></p>
-<p>
-	重复口令：
-	<input type="password" id="password2">
-</p>
-<p id="signup-error3" style="color: red"></p>
-<p>
-	<button type="submit">提交</button>
-	<button type="reset">重置</button>
-</p>
+				var Username = oUsername.value;
+				var Password = oPassword.value;
+				var Password2 = oPassword2.value;
 
-<script>
-	function onSignupFormSubmit(){
-		var iUsername = document.getElementById("username");
-		var iPassword = document.getElementById("password");
-		var iPassword2 = document.getElementById("password2");
-		var username = iUsername.value;
-		var password = iPassword.value;
-		var password2 = iPassword2.value;
-		var errorText1 = document.getElementById("signup-error1");
-		var errorText2 = document.getElementById("signup-error2");
-		var errorText3 = document.getElementById("signup-error3");
-		
-		if(username.length<6 || username.length>16){
-			errorText1.innerText = "用户名长度应该在6-16字符之间";
-			return false;
-		}
-		
-		else if(/^[A-Za-z]+.*$/.test(username) == false){
-			errorText1.innerText = "用户名应以字母开头";
-			return false;
-		}
-		else if(/^[A-Za-z]\w*$/.test(username) == false){
-			errorText1.innerText = "用户名只包含字母、数字或下划线";
-			return false;
-		}
-		if(password.length<8 || password.length > 20){
-			errorText2.innerText = "口令长度应在8-20个字符之间";
-			return false;
-		}
-		else if(/^[\x21-\x7e]*$/.test(password) == false) {
-			errorText2.innerText = "口令应只包含英文字符、数字、下划线或者特殊符号";
-			return false;
-		}
-		if(password2 != password){
-			errorText3.innerText = "重复口令应该和口令一致";
-			return false;
-		}
-	}
-</script>
-		
-</form>
+				if (Username.length < 3 || Username.length > 10) {
+					oError.innerText = "用户名必须是3-10位";
+					return false;
+				}
+
+				if (Password.length < 6 || Password.length > 20) {
+					oError.innerText = "密码必须是6-20位";
+					return false;
+				}
+				if (Password != Password2) {
+					oError.innerText = "两次密码不一致";
+					return false;
+				}
+				return true;
+			}
+		</script>
+	</form>
 </body>
+
 </html>
