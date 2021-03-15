@@ -22,11 +22,11 @@
         function random() {
             var m;
             var ran = Math.trunc(Math.random() * 100); //产生0 -99的随机数
-            if (ran == 0) m = 0;
-            else if (ran > 0 && ran <= 10) m = 1;
-            else if (ran > 10 && ran <= 40) m = 2;
-            else if (ran >= 41 && ran <= 80) m = 3;
-            else if (ran >= 81 && ran < 100) m = 4;
+            if (ran <= 1) m = 0;//概率为1%
+            else if (ran <= 11) m = 1;//概率为10%
+            else if (ran <= 41) m = 2;//概率为30%
+            else if (ran <= 81) m = 3;//概率为40%
+            else  m = 4;//概率为19%
             return m;
         }
         var content = document.getElementById("award");
@@ -52,18 +52,18 @@
             }
         }
 
-        var oStar = document.getElementById("start");
-        var oStop = document.getElementById("stop");
+        document.getElementById("start").onclick=getAward;
+        document.getElementById("stop").onclick=stop
         var go;
         var once = 0;
-        oStar.onclick = function getAward() {
+        function getAward() {
             if (once == 0) {
                 go = setInterval(award, 10);//每10ms执行一次
                 once = 1;
             }
 
         };
-        oStop.onclick = function stop() {
+        function stop() {
             clearInterval(go);
             once = 0;
         };
