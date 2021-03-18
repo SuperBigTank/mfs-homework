@@ -1,29 +1,22 @@
-<!doctype html>
-<html lang="ch">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <title>使用降域</title>
-    <style>
-        .container {
-            display: flex;
-        }
-
-        .container 
-        iframe {
-            border: 1px solid;
-            height: 300px;
-            width: 30%;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>降域</title>
 </head>
 
 <body>
-    <h1>降域</h1>
-    <div class="container">
-        <iframe src="http://www.abc.com:8000/JavaScript.html" frameborder="0"></iframe>
-    </div>
+    降域打开
+    <iframe src="http://www.a.com:5000/36.Canvas基本用法代码题" frameborder="0" width="500px" height="500px"></iframe>
+    <script>
+        document.domain = "a.com";
+        setTimeout(() => {
+            console.log(window.frames[0].document.getElementById("ch1"))
+        }, 1000);
 
+    </script>
 </body>
 
 </html>
