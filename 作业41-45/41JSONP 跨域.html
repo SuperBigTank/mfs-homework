@@ -1,20 +1,24 @@
- <!DOCTYPE html>
+  
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>跨域</title>
+    <title>码蜂社前端作业41</title>
 </head>
-
 <body>
-    JSONP实现跨域
+    我们自己的网页
+    
     <script>
-        function callback(data){
-            console.log(data)
+        var xhr=new XMLHttpRequest;
+        xhr.open("GET","http://www.b.com:5000/data.json");
+        xhr.onreadystatechange=function(){
+            if(xhr.readyState==4)
+            {
+                console.log(xhr.responseText);
+            }
         }
+        xhr.send();
     </script>
-    <script src="http://www.abc.com:8000/data.js"></script>
 </body>
-
 </html>
