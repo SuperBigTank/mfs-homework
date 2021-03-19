@@ -8,9 +8,17 @@
 </head>
 
 <body>
+    <button id="btnshow">显示结果</button>
+    <div id="show" style="height:20px"></div>
     <script>
         var date = new Date(2017, 03, 05, 10, 03, 08)
         console.log(date)
+
+        function showResult() {
+            var oShow = document.getElementById("show");
+            oShow.innerHTML = date;
+        }
+        var temp = document.getElementById("btnshow").addEventListener('click', showResult);
     </script>
 </body>
 
