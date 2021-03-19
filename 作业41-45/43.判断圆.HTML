@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>43判断圆</title>
+</head>
+
+<body>
+    <div class="container">
+        <!-- 输入圆心所在位置 -->
+        <span>圆心坐标:</span></br>
+        <span>x:</span><input type="number" id="OX">
+        <span>y:</span><input type="number" id="OY"></br>
+        <!-- 输入P点所在位置 -->
+        <span>点P坐标:</span></br>
+        <span>x:</span><input type="number" id="PX">
+        <span>y:</span><input type="number" id="PY"></br>
+        <!-- 输入半径 -->
+        <span>半径:</span></br>
+        <span>r:</span><input type="number" id="rad"></br>
+        <button id="btnCal">计算</button>
+        <div id="show" style="height:20px"></div>
+    </div>
+    <script>
+        function isInCircle() {
+            var radius= document.getElementById("rad").value;//从输入栏获取半径
+            var oStanX = document.getElementById("OX").value;//从输入栏获取圆心X坐标
+            var oStanY = document.getElementById("OY").value;//从输入栏获取圆心Y坐标
+            var oPX = document.getElementById("PX").value;//从输入栏获取P点X坐标
+            var oPY = document.getElementById("PY").value;//从输入栏获取P点Y坐标
+            var radiussq = radius*radius;//半径的平方=半径*半径
+            var distancesq = (oPX - oStanX) * (oPX - oStanX) + (oPY - oStanY) * (oPY - oStanY);//距离的平方等于(X1-X2)^2+(Y1-Y2)^2
+            if (distancesq > radiussq) return false;
+            else return true;
+        }
+        /* 显示结果 */
+        function showResult() {
+            var oShow = document.getElementById("show");
+            oShow.innerHTML = isInCircle();
+        }
+        var temp = document.getElementById("btnCal").addEventListener('click', showResult);
+    </script>
+</body>
+
+</html>
