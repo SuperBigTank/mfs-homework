@@ -10,15 +10,19 @@
 
 <body>
     <script>
-        timerFun()
-        function timerFun() {
-            //要执行的操作
-            console.log("2s后打印");
-            var timer = setTimeout(function () {
-                timerFun()
-                clearTimeout(timer)
-            }, 2000)
+        function mySetInterval(fun, millisec) {
+            setTimeout(function () {
+                fun();
+                mySetInterval(fun, millisec)
+            }, millisec);
         }
+        var start = new Date;
+        mySetInterval(function () {
+            var end = new Date;
+            console.log('Time elapsed:', end - start, 'ms');
+            /* start = end; */   //加上之后可以自修正
+            for (var i = 0; i < 10000 * 10000; i++);
+        }, 100)
     </script>
 </body>
 
