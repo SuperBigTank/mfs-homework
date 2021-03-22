@@ -18,11 +18,11 @@
         function Animal(name) {
             this.name = name;
         }
-        Animal.prototype.eat = function() {
-            console.log("I'm eating!")
+        Animal.prototype.eat = function () {
+            console.log("eat!")
         }
-        Animal.prototype.sleep = function() {
-            console.log("I'll sleep!")
+        Animal.prototype.sleep = function () {
+            console.log("sleep!")
         }
 
         function Dog(name) {
@@ -30,8 +30,8 @@
             this.name = name;
         }
         Dog.prototype = Object.create(Animal.prototype);
-        Dog.prototype.bark = function() {
-            console.log("旺旺");
+        Dog.prototype.bark = function () {
+            console.log("dogbark");
         }
 
         function Cat(name) {
@@ -39,8 +39,8 @@
             this.name = name;
         }
         Cat.prototype = Object.create(Animal.prototype);
-        Cat.prototype.bark = function() {
-            console.log("喵喵");
+        Cat.prototype.bark = function () {
+            console.log("catbark");
         }
 
         function Human(name) {
@@ -48,8 +48,8 @@
             this.name = name;
         }
         Human.prototype = Object.create(Animal.prototype);
-        Human.prototype.speak = function() {
-            console.log("I'm speaking!");
+        Human.prototype.speak = function () {
+            console.log("speak!");
         }
     </script>
 </body>
