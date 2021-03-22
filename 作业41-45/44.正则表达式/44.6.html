@@ -46,8 +46,8 @@
         function getInfo(html) {
             var data = [];
             var titleArray = html.match(/(?<=<h4.*>).*(?=<\/h4>)/g);
-            var teacherArray = html.match(/(?<=导师：\s*<!-- \/react-text -->\s*<!-- react-text: \d* -->).*(?=\s*<!--)/g);
-            var hourArray = html.match(/(?<=时长：\s*<!-- \/react-text -->\s*<!-- react-text: \d* -->).*(?=\s*<)/g);
+            var teacherArray = html.match(/(?<=导师：\s<!-- \/react-text -->\s<!-- react-text: \d* -->).*(?=\s)/g);
+            var hourArray = html.match(/(?<=时长：\s<!-- \/react-text -->\s<!-- react-text: \d* -->).*(?=\s<)/g);
             var length = Math.min(titleArray.length, teacherArray.length, hourArray.length);
             for (let i = 0; i < length; i++) {
                 data.push({
