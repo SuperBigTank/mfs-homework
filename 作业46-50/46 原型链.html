@@ -5,54 +5,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>46</title>
+    <title>Document</title>
 </head>
 
 <body>
     <script>
-        function MyCreate(child, father) {
-            child = new Object();
-            child.__proto__ = father;
-        }
+        function Animal() {
 
-        function Animal(name) {
-            this.name = name;
         }
         Animal.prototype.eat = function () {
-            console.log("eat!")
+            return "Animal eat";
         }
         Animal.prototype.sleep = function () {
-            console.log("sleep!")
+            return "Animal sleep";
         }
 
-        function Dog(name) {
-            Animal.call(this, name);
-            this.name = name;
+        function Dog() {
+
         }
-        Dog.prototype = Object.create(Animal.prototype);
         Dog.prototype.bark = function () {
-            console.log("dogbark");
+            return "dog bark";
         }
+        Dog.prototype.__proto__ = Animal.prototype;
 
-        function Cat(name) {
-            Animal.call(this, name);
-            this.name = name;
+        function Cat() {
+
         }
-        Cat.prototype = Object.create(Animal.prototype);
         Cat.prototype.bark = function () {
-            console.log("catbark");
+            return "cat bark";
         }
+        Cat.prototype.__proto__ = Animal.prototype;
 
-        function Human(name) {
-            Animal.call(this, name);
-            this.name = name;
+        function Human() {
+
         }
-        Human.prototype = Object.create(Animal.prototype);
         Human.prototype.speak = function () {
-            console.log("speak!");
+            return "Human speak"
         }
+        Human.prototype.__proto__ = Animal.prototype;
     </script>
 </body>
 
 </html>
-<!-- 测试git -->
