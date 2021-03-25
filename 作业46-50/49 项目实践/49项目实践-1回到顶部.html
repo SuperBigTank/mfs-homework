@@ -8,7 +8,7 @@
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
     <style>
         .content {
-            height: 1400px;
+            height: 4000px;
             width: 500px;
             background-color: darkcyan;
             margin: 0 auto;
@@ -40,8 +40,8 @@
     <script>
 
         window.onscroll = function () {
-            if (window.scrollY > 600) {
-                $(".back-top-btn").addClass("show")
+            if (window.scrollY > 0) {
+                $(".back-top-btn").addClass("show")//当y的位置到600处，显示返回顶部按钮
 
             } else {
                 $(".back-top-btn").removeClass("show")
