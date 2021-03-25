@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script><!-- 导入jQuery -->
     <style>
         .top {
             height: 40px;
@@ -13,12 +13,13 @@
 
         .nav {
             height: 60px;
-            background-color: forestgreen;
+            background-color: aqua;
             width: 1000px;
             margin: 0 auto;
             top: 0;
             right: 0;
             left: 0;
+            text-align: center;
         }
 
         .content {
@@ -28,20 +29,21 @@
             margin: 0 auto;
         }
 
+        /* 通过定义fix类，使得两个div可以连接在一起的同时，nav固定在窗口顶部 */
         .fixed {
             position: fixed;
-         
+
         }
     </style>
 </head>
 
 <body>
     <div class="top"></div>
-    <div class="nav"></div>
+    <div class="nav">这是磁贴效果</div>
     <div class="content"></div>
     <script>
         window.onscroll = function () {
-            if (window.scrollY > 40) {
+            if (window.scrollY > 40) {//窗口滚动大于40px时，添加fix来固定在窗口上（理论上来说这个判断数值要小于等于磁贴的高度）
                 $(".nav").addClass("fixed")
 
             } else {
@@ -52,3 +54,4 @@
 </body>
 
 </html>
+<!-- 通过.addClass和.removeClass以及相应的条件语句来实现对class的操纵 -->

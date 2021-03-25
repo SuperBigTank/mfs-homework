@@ -3,9 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <title></title>
     <style>
         .item {
             position: absolute;
@@ -19,18 +17,18 @@
         }
 
         .type1 {
-            background-color: seagreen;
+            background-color: Cyan;
             height: 250px;
         }
 
         .type2 {
-            background-color: sienna;
-            height: 350px;
+            background-color: Coral;
+            height: 450px;
         }
 
         .type3 {
-            background-color: slategrey;
-            height: 450px;
+            background-color: Indigo;
+            height: 350px;
         }
     </style>
 </head>
@@ -40,55 +38,65 @@
         <div class="item type1">1</div>
         <div class="item type2">2</div>
         <div class="item type3">3</div>
-        <div class="item type1">4</div>
+        <div class="item type2">4</div>
         <div class="item type3">5</div>
-        <div class="item type2">6</div>
-        <div class="item type3">7</div>
-        <div class="item type2">8</div>
-        <div class="item type1">9</div>
-        <div class="item type1">10</div>
-        <div class="item type2">11</div>
+        <div class="item type1">6</div>
+        <div class="item type2">7</div>
+        <div class="item type3">8</div>
+        <div class="item type2">9</div>
+        <div class="item type3">10</div>
+        <div class="item type1">11</div>
         <div class="item type3">12</div>
-    </div>
+        <div class="item type1">13</div>
+        <div class="item type3">14</div>
+        <div class="item type1">15</div>
+        <div class="item type2">16</div>
+        <div class="item type1">17</div>
+        <div class="item type2">18</div>
 
+    </div>
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
     <script>
-        function findMinIndex(arr) {
-            var minIdx = 0;
+        function findMinIndex(arr) {//寻找高度最小那一列
+            var minIndex = 0;
             for (var i = 0; i < arr.length; i++) {
-                if (arr[minIdx] > arr[i]) {
-                    minIdx = i;
-                }
+                if (arr[i] < arr[minIndex])
+                    minIndex = i;
             }
-            return minIdx;
+            return minIndex;
         }
+
         function waterFall() {
-            var itemWidth = $(".item").outerWidth(true);
-            var containerWidth = $(".water-fall").width();
-            var cloNum = Math.floor(containerWidth / itemWidth);
+
+            var itemWidth = $(".item").outerWidth(true)
+            var containerWidth = $(".water-fall").width()
+            var colNum = Math.floor(containerWidth / itemWidth);
             var heights = [];
 
-            for (var i = 0; i < cloNum; i++) {
-                heights.push(0);
+            for (var i = 0; i < colNum; i++) {
+                heights.push(0)
             }
-            $(".item").each(function () {
-                var col = findMinIndex(heights)
 
-                $(this).css({
+            $(".item").each(function () {
+                var col = findMinIndex(heights);
+                var ele = $(this)
+
+                ele.css({
                     top: heights[col] + "px",
-                    left: col * itemWidth + "px",
-                })
-                heights[col] += $(this).outerHeight(true)
+                    left: col * itemWidth + "px"
+                });
+
+                heights[col] += ele.outerHeight(true);
             })
 
         }
-        window.onresize = function () {
+
+        waterFall();
+
+        $(window).on("resize", function () {
             waterFall()
-        }
-        waterFall()
-
+        })
     </script>
-
-
 </body>
 
 </html>

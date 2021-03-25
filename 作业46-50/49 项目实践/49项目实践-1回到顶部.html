@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script><!-- 导入jQuery -->
     <style>
         .content {
             height: 4000px;
@@ -25,7 +25,7 @@
             text-align: center;
             color: aqua;
             display: none;
-            cursor: pointer
+            cursor: pointer/* 鼠标移上去变成指针。 */
         }
 
         .show {
@@ -40,19 +40,21 @@
     <script>
 
         window.onscroll = function () {
-            if (window.scrollY > 0) {
-                $(".back-top-btn").addClass("show")//当y的位置到600处，显示返回顶部按钮
-
+            if (window.scrollY > 0) {//$( ).action( )表示选取HTML元素并执行操作
+                $(".back-top-btn").addClass("show")
+                //当y的位置到滚动要求处（0px），显示返回顶部按钮
+                //
             } else {
                 $(".back-top-btn").removeClass("show")
+                //当y的位置不满足滚动高度要求，不显示返回顶部按钮
             }
         }
         $(".back-top-btn").click(function () {
-            window.scrollTo(0, 0)
+            window.scrollTo(0, 0)//滚动回最上面
         })
 
     </script>
 </body>
 
 </html>
-
+<!-- 通过.addClass和.removeClass以及相应的条件语句来实现对class的操纵 -->

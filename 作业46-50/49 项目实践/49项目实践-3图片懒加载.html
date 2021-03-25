@@ -1,45 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>图片懒加载</title>
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
     <style>
-        .a{
-            height: 1000px;
+        .a {
+            height: 1000px;/* 可视区大小 */
         }
-        .img{
-            height: 400px;
+
+        .img {
+            height: 394px;
             width: 650px;
-            background-color: seagreen;
+            background: green;
         }
     </style>
+
+
 </head>
+
 <body>
     <div class="a"></div>
     <div class="a"></div>
     <img data-src="http://static.mafengshe.com/home/pic/2.jpg?imagrMogr2/quality/40" alt="">
     <div class="a"></div>
     <div class="a"></div>
-    
+
+
     <script>
-        function isShow($node){
-            var windowH=window.innerHeight;
-            var scrollTop=$(window).scrollTop();
-            var nodeOT=$node.offset().top;
-            var nodeH=$node.height();
-            return nodeOT<=scrollTop+windowH && nodeOT+nodeH>=scrollTop
+        function isShow($node) {//只判断垂直偏移
+            var windowH = $(window).height();//jQuery方法下屏幕可视窗口大小
+            var scrollTop = $(window).scrollTop();//jQuery方法下滚动条滚动的距离
+            var nodeOT = $node.offset().top; // 元素距离文档顶的距离
+            var nodeH = $node.height();//元素宽度
+            return nodeOT <= scrollTop + windowH && nodeOT + nodeH >= scrollTop//向下进入和向上出不去
+        }
+        window.onscroll = function () {
+            console.log(isShow($('img')))
+            if (isShow($('img'))) {
+                $('img').attr("src", $('img').data('src'))
             }
-            window.onscroll=function(){
-                console.log(isShow($('img')))
-                if(isShow($('img'))){
-                    $('img').attr("src",$('img').data('src'))
-                }
-            }
+        }
     </script>
-
-    
-
 </body>
+
 </html>
