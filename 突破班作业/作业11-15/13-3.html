@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function ajaxGet(url) {
+            return new Promise(function (resolve, reject) {
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", url);
+                xhr.send();
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status === 200) {
+                            resolve(xhr.responseText)
+                        } else {
+                            reject(xhr.response)
+                        }
+                    }
+                }
+            })
+
+        }
+        ajaxGet("https://learning-api.mafengshe.com/news?page=1").then(function () {
+            console.log("req 1");
+            return ajaxGet("https://learning-api.mafengshe.com/news?page=2");
+        }).then(function () {
+            console.log("req 2");
+            return ajaxGet("https://learning-api.mafengshe.com/news?page=3");
+        }).then(function () {
+            console.log("req 3")
+            return ajaxGet("https://learning-api.mafengshe.com/news?page=4");
+        }).then(function () {
+            console.log("req 4");
+            return ajaxGet("https://learning-api.mafengshe.com/news?page=5");
+        }).then(function () {
+            console.log("req 5")
+            return ajaxGet("https://learning-api.mafengshe.com/news?page=6");
+        }).then(function () {
+            console.log("req 6");
+            return ajaxGet("https://learning-api.mafengshe.com/news?page=7");
+        }).then(function () {
+            console.log("req 7")
+            return ajaxGet("https://learning-api.mafengshe.com/news?page=8");
+        }).then(function () {
+            console.log("req 8");
+            return ajaxGet("https://learning-api.mafengshe.com/news?page=9");
+        }).then(function () {
+            console.log("req 9")
+            return ajaxGet("https://learning-api.mafengshe.com/news?page=10");
+        }).then(function () {
+            console.log("req 10");
+        })
+        var num = 0;
+        function doSuccess() {
+            ++num;
+            if (num >= 10) {
+                console.log("request finished ");
+            }
+        }
+        function Bajax() {
+            for (let i = 1; i <= 10; ++i) {
+                ajaxGet("https://learning-api.mafengshe.com/news?page=" + i + "").then(function (data) {
+                    console.log("req " + i), data;
+                    doSuccess();
+                })
+            }
+
+        }
+        Bajax();
+    </script>
+</body>
+
+</html>
